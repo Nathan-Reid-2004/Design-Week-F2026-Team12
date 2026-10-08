@@ -107,9 +107,6 @@ public class MapMovement : MonoBehaviour
         yesButton3.gameObject.SetActive(false);
         noButton3.gameObject.SetActive(false);
 
-        smallItemCount += 1;
-
-
         Destroy(smallItem2);
 
     }
@@ -126,9 +123,6 @@ public class MapMovement : MonoBehaviour
         yesButton3.gameObject.SetActive(false);
         noButton3.gameObject.SetActive(false);
 
-
-        smallItemCount += 1;
-
         Destroy(smallItem3);
 
     }
@@ -144,7 +138,13 @@ public class MapMovement : MonoBehaviour
 
         sceneDesc.text = "(description of scene)";
     }   
-    
+
+    public void ItemDrop()
+    {
+        itemCount -= 1;
+        itemCounter.text = ($"Items: {itemCount}");
+    }
+
     public void MapPositionChangeHospital()
     {
 
