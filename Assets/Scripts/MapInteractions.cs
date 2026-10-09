@@ -79,10 +79,19 @@ public class MapMovement : MonoBehaviour
     public GameObject locationNodeLibrary;
     public GameObject locationNodeFactory;
 
+    public GameObject leaveNode;
+    public GameObject leaveNodeHospital;
+    public GameObject leaveNodeLibrary;
+    public GameObject leaveNodeFactory;
+
     bool loadItems;
-    public GameObject[] loadLibrary = new GameObject[8];
-    public GameObject[] loadHospital = new GameObject[7];
-    public GameObject[] loadFactory = new GameObject[6];
+    public GameObject[] loadOverworld = new GameObject[4];
+    public GameObject[] loadLibrary = new GameObject[4];
+    public GameObject[] loadHospital = new GameObject[4];
+    public GameObject[] loadFactory = new GameObject[3];
+
+    public AudioSource itemPickupSound;
+    public AudioSource menuSound;
 
 
 
@@ -91,7 +100,13 @@ public class MapMovement : MonoBehaviour
     {
         isOver1 = false;
 
+        sceneDesc.text = "This is 1-topia. A desolate place left in ruin from the upper eschalant of this world. You are a junkrat, a nomad scavenger that relies on what gets left behind to survive, and you alone must search for your means to live. Travel to nearby locations to scavenge and manage your energy so you can overcome this unforgiving place.";
+
         SetSceneLibrary(loadLibrary, false);
+        SetSceneFactory(loadFactory, false);
+        SetSceneHospital(loadHospital, false);
+        SetSceneOverworld(loadOverworld, true);
+        
         itemCounter.text = ($"Items: {itemCount}");
         smallItemCounter.text = ($"Quantity: {smallItemCount}");
         medItemCounter.text = ($"Quantity: {medItemCount}");
@@ -155,6 +170,7 @@ public class MapMovement : MonoBehaviour
         sceneDesc.text = "Obtain the item?";
         yesButton.gameObject.SetActive(true);
         noButton.gameObject.SetActive(true);
+        menuSound.Play();
     }
 
     public void InteractionButtonsItem2()
@@ -162,6 +178,7 @@ public class MapMovement : MonoBehaviour
         sceneDesc.text = "Obtain the item?";
         yesButton2.gameObject.SetActive(true);
         noButton2.gameObject.SetActive(true);
+        menuSound.Play();
     }
 
     public void InteractionButtonsItem3()
@@ -169,6 +186,7 @@ public class MapMovement : MonoBehaviour
         sceneDesc.text = "Obtain the item?";
         yesButton3.gameObject.SetActive(true);
         noButton3.gameObject.SetActive(true);
+        menuSound.Play();
     }
 
     public void InteractionButtonsItem4()
@@ -176,6 +194,7 @@ public class MapMovement : MonoBehaviour
         sceneDesc.text = "Obtain the item?";
         yesButton4.gameObject.SetActive(true);
         noButton4.gameObject.SetActive(true);
+        menuSound.Play();
     }
 
     public void InteractionButtonsItem5()
@@ -183,6 +202,7 @@ public class MapMovement : MonoBehaviour
         sceneDesc.text = "Obtain the item?";
         yesButton5.gameObject.SetActive(true);
         noButton5.gameObject.SetActive(true);
+        menuSound.Play();
     }
 
     public void InteractionButtonsItem6()
@@ -190,6 +210,7 @@ public class MapMovement : MonoBehaviour
         sceneDesc.text = "Obtain the item?";
         yesButton6.gameObject.SetActive(true);
         noButton6.gameObject.SetActive(true);
+        menuSound.Play();
     }
 
     public void InteractionButtonsItem7()
@@ -197,6 +218,7 @@ public class MapMovement : MonoBehaviour
         sceneDesc.text = "Obtain the item?";
         yesButton7.gameObject.SetActive(true);
         noButton7.gameObject.SetActive(true);
+        menuSound.Play();
     }
 
     public void InteractionButtonsItem8()
@@ -204,6 +226,7 @@ public class MapMovement : MonoBehaviour
         sceneDesc.text = "Obtain the item?";
         yesButton8.gameObject.SetActive(true);
         noButton8.gameObject.SetActive(true);
+        menuSound.Play();
     }
 
     public void ItemManagerUp()
@@ -214,6 +237,7 @@ public class MapMovement : MonoBehaviour
         smallItemCount += 1;
         smallItemCounter.text = ($"Quantity: {smallItemCount}");
         smallItemIcon1.SetActive(true);
+        itemPickupSound.Play();
         yesButton.gameObject.SetActive(false);
         noButton.gameObject.SetActive(false);
         yesButton2.gameObject.SetActive(false);
@@ -244,6 +268,7 @@ public class MapMovement : MonoBehaviour
         smallItemCount += 1;
         smallItemCounter.text = ($"Quantity: {smallItemCount}");
         smallItemIcon2.SetActive(true);
+        itemPickupSound.Play();
         yesButton.gameObject.SetActive(false);
         noButton.gameObject.SetActive(false);
         yesButton2.gameObject.SetActive(false);
@@ -273,6 +298,7 @@ public class MapMovement : MonoBehaviour
         smallItemCount += 1;
         smallItemCounter.text = ($"Quantity: {smallItemCount}");
         smallItemIcon3.SetActive(true);
+        itemPickupSound.Play();
         yesButton.gameObject.SetActive(false);
         noButton.gameObject.SetActive(false);
         yesButton2.gameObject.SetActive(false);
@@ -301,6 +327,7 @@ public class MapMovement : MonoBehaviour
         medItemCount += 1;
         medItemCounter.text = ($"Quantity: {medItemCount}");
         medItemIcon1.SetActive(true);
+        itemPickupSound.Play();
         yesButton.gameObject.SetActive(false);
         noButton.gameObject.SetActive(false);
         yesButton2.gameObject.SetActive(false);
@@ -330,6 +357,7 @@ public class MapMovement : MonoBehaviour
         medItemCount += 1;
         medItemCounter.text = ($"Quantity: {medItemCount}");
         medItemIcon2.SetActive(true);
+        itemPickupSound.Play();
         yesButton.gameObject.SetActive(false);
         noButton.gameObject.SetActive(false);
         yesButton2.gameObject.SetActive(false);
@@ -359,6 +387,7 @@ public class MapMovement : MonoBehaviour
         medItemCount += 1;
         medItemCounter.text = ($"Quantity: {medItemCount}");
         medItemIcon3.SetActive(true);
+        itemPickupSound.Play();
         yesButton.gameObject.SetActive(false);
         noButton.gameObject.SetActive(false);
         yesButton2.gameObject.SetActive(false);
@@ -386,8 +415,9 @@ public class MapMovement : MonoBehaviour
         itemCounter.text = ($"Items: {itemCount}");
         sceneDesc.text = "You obtained the item.";
         largeItemCount += 1;
-        largeItemCounter.text = ($"Quantity: {medItemCount}");
+        largeItemCounter.text = ($"Quantity: {largeItemCount}");
         largeItemIcon1.SetActive(true);
+        itemPickupSound.Play();
         yesButton.gameObject.SetActive(false);
         noButton.gameObject.SetActive(false);
         yesButton2.gameObject.SetActive(false);
@@ -415,8 +445,9 @@ public class MapMovement : MonoBehaviour
         itemCounter.text = ($"Items: {itemCount}");
         sceneDesc.text = "You obtained the item.";
         largeItemCount += 1;
-        largeItemCounter.text = ($"Quantity: {medItemCount}");
+        largeItemCounter.text = ($"Quantity: {largeItemCount}");
         largeItemIcon2.SetActive(true);
+        itemPickupSound.Play();
         yesButton.gameObject.SetActive(false);
         noButton.gameObject.SetActive(false);
         yesButton2.gameObject.SetActive(false);
@@ -448,6 +479,7 @@ public class MapMovement : MonoBehaviour
         noButton3.gameObject.SetActive(false);
 
         sceneDesc.text = "(description of scene)";
+        menuSound.Play();
     }   
 
     public void ItemDropSmall()
@@ -457,6 +489,7 @@ public class MapMovement : MonoBehaviour
         smallItemCount -= 1;
         smallItemCounter.text = ($"Quantity: {smallItemCount}");
         smallItemIcon1.SetActive(false);
+        itemPickupSound.Play();
     }
 
     public void ItemDropSmall2()
@@ -466,6 +499,7 @@ public class MapMovement : MonoBehaviour
         smallItemCount -= 1;
         smallItemCounter.text = ($"Quantity: {smallItemCount}");
         smallItemIcon2.SetActive(false);
+        itemPickupSound.Play();
     }
 
     public void ItemDropSmall3()
@@ -475,6 +509,7 @@ public class MapMovement : MonoBehaviour
         smallItemCount -= 1;
         smallItemCounter.text = ($"Quantity: {smallItemCount}");
         smallItemIcon3.SetActive(false);
+        itemPickupSound.Play();
     }
 
     public void ItemDropMed()
@@ -484,6 +519,7 @@ public class MapMovement : MonoBehaviour
         medItemCount -= 1;
         medItemCounter.text = ($"Quantity: {medItemCount}");
         medItemIcon1.SetActive(false);
+        itemPickupSound.Play();
     }
 
     public void ItemDropMed2()
@@ -493,6 +529,7 @@ public class MapMovement : MonoBehaviour
         medItemCount -= 1;
         medItemCounter.text = ($"Quantity: {medItemCount}");
         medItemIcon2.SetActive(false);
+        itemPickupSound.Play();
     }
 
     public void ItemDropMed3()
@@ -502,6 +539,7 @@ public class MapMovement : MonoBehaviour
         medItemCount -= 1;
         medItemCounter.text = ($"Quantity: {medItemCount}");
         medItemIcon3.SetActive(false);
+        itemPickupSound.Play();
     }
 
     public void ItemDropLarge()
@@ -511,6 +549,7 @@ public class MapMovement : MonoBehaviour
         largeItemCount -= 1;
         largeItemCounter.text = ($"Quantity: {largeItemCount}");
         largeItemIcon1.SetActive(false);
+        itemPickupSound.Play();
     }
 
     public void ItemDropLarge2()
@@ -520,40 +559,104 @@ public class MapMovement : MonoBehaviour
         largeItemCount -= 1;
         largeItemCounter.text = ($"Quantity: {largeItemCount}");
         largeItemIcon2.SetActive(false);
+        itemPickupSound.Play();
     }
 
     public void MapPositionChangeHospital()
     {
 
         positionTracker.transform.position = locationNodeHospital.transform.position;
-        sceneDesc.text = "Hospital text";
+        sceneDesc.text = "You narrowly enter the abandoned hospital through the screeching revolving doors of this once safe haven for those in need. A cold darkness engulfs the emergency room you stand in, breezing past your cheeks as to caress you forward deeper into its clasp. The walls tainted with stains and the tile floor corroded beneath your feet. Upon your left you see a director’s guide with barely distinguishable directions to other wings of the hospital, \"Let's hope for some meds this time.\".";
+        menuSound.Play();
 
         SetSceneLibrary(loadLibrary, false);
         SetSceneFactory(loadFactory, false);
         SetSceneHospital(loadHospital, true);
-
+        SetSceneOverworld(loadOverworld, false);
     }
 
     public void MapPositionChangeLibrary()
     {
         positionTracker.transform.position = locationNodeLibrary.transform.position;
-        sceneDesc.text = "Library text";
+        sceneDesc.text = "You enter through the gaping hole of destruction in the side of the building, standing in the midst of a hallway. A long corridor of busted lockers and vines hanging from the ceiling coat the hallway. Holes in the ceiling light the way in either direction for you to explore, “If only school was as helpful as its downfall has been. Let’s see if we can find some ‘How-To’ books.”.";
+        menuSound.Play();
 
         SetSceneLibrary(loadLibrary, true);
         SetSceneFactory(loadFactory, false);
         SetSceneHospital(loadHospital, false);
-        
+        SetSceneOverworld(loadOverworld, false);
     }
 
     public void MapPositionChangeFactory()
     {
-        positionTracker.transform.position = locationNodeLibrary.transform.position;
-        sceneDesc.text = "Factory text";
+        positionTracker.transform.position = locationNodeFactory.transform.position;
+        sceneDesc.text = "You crawl up from underneath the barbed gate of an industrial complex. Once a shining light of progress now left to rot in darkness. You stride cautiously through a graveyard of shrapnel towards the factory at its heart, hoping to find some lost trove of machinized fortune. “I used to hear stories of this place, how it was the lifeblood of this area and its people. They gave so it would give back to them. I miss those days. I miss dad…”.";
+        menuSound.Play();
 
         SetSceneLibrary(loadLibrary, false);
         SetSceneFactory(loadFactory, true);
         SetSceneHospital(loadHospital, false);
+        SetSceneOverworld(loadOverworld, false);
 
+    }
+
+    public void MapPositionChangeOverworld()
+    {
+        positionTracker.transform.position = leaveNode.transform.position;
+        sceneDesc.text = "This is 1-topia. A desolate place left in ruin from the upper eschalant of this world. You are a junkrat, a nomad scavenger that relies on what gets left behind to survive, and you alone must search for your means to live. Travel to nearby locations to scavenge and manage your energy so you can overcome this unforgiving place.";
+        menuSound.Play();
+
+        SetSceneLibrary(loadLibrary, false);
+        SetSceneFactory(loadFactory, false);
+        SetSceneHospital(loadHospital, false);
+        SetSceneOverworld (loadOverworld, true);
+    }
+
+    public void MapPositionChangeFromHospitalOverworld()
+    {
+        positionTracker.transform.position = leaveNodeHospital.transform.position;
+        sceneDesc.text = "This is 1-topia. A desolate place left in ruin from the upper eschalant of this world. You are a junkrat, a nomad scavenger that relies on what gets left behind to survive, and you alone must search for your means to live. Travel to nearby locations to scavenge and manage your energy so you can overcome this unforgiving place.";
+        menuSound.Play();
+
+        SetSceneLibrary(loadLibrary, false);
+        SetSceneFactory(loadFactory, false);
+        SetSceneHospital(loadHospital, false);
+        SetSceneOverworld(loadOverworld, true);
+    }
+
+    public void MapPositionChangeFromFactoryOverworld()
+    {
+        positionTracker.transform.position = leaveNodeFactory.transform.position;
+        sceneDesc.text = "This is 1-topia. A desolate place left in ruin from the upper eschalant of this world. You are a junkrat, a nomad scavenger that relies on what gets left behind to survive, and you alone must search for your means to live. Travel to nearby locations to scavenge and manage your energy so you can overcome this unforgiving place.";
+        menuSound.Play();
+
+        SetSceneLibrary(loadLibrary, false);
+        SetSceneFactory(loadFactory, false);
+        SetSceneHospital(loadHospital, false);
+        SetSceneOverworld(loadOverworld, true);
+    }
+
+    public void MapPositionChangeFromLibraryOverworld()
+    {
+        positionTracker.transform.position = leaveNodeLibrary.transform.position;
+        sceneDesc.text = "This is 1-topia. A desolate place left in ruin from the upper eschalant of this world. You are a junkrat, a nomad scavenger that relies on what gets left behind to survive, and you alone must search for your means to live. Travel to nearby locations to scavenge and manage your energy so you can overcome this unforgiving place.";
+        menuSound.Play();
+
+        SetSceneLibrary(loadLibrary, false);
+        SetSceneFactory(loadFactory, false);
+        SetSceneHospital(loadHospital, false);
+        SetSceneOverworld(loadOverworld, true);
+    }
+
+    public void SetSceneOverworld(GameObject[] loadOverworld, bool loadItems)
+    {
+        foreach (GameObject nodes in loadOverworld)
+        {
+            if (nodes != null)
+            {
+                nodes.SetActive(loadItems);
+            }
+        }
     }
 
     public void SetSceneLibrary(GameObject[] loadLibrary, bool loadItems)
@@ -593,11 +696,17 @@ public class MapMovement : MonoBehaviour
     {
         inventoryScreen.sortingOrder = 100;
         smallItemCounter.sortingOrder = 101;
+        medItemCounter.sortingOrder = 101;
+        largeItemCounter.sortingOrder = 101;
+        menuSound.Play();
     }
 
     public void InventoryScreenClose()
     {
         inventoryScreen.sortingOrder = -100;
         smallItemCounter.sortingOrder = -101;
+        medItemCounter.sortingOrder = -101;
+        largeItemCounter.sortingOrder = -101;
+        menuSound.Play();
     }
 }
