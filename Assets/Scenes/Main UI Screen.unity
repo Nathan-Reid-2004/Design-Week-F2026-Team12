@@ -363,7 +363,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Water
+  m_text: ' Books'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5174153a94d3d7438976f8206e0025a, type: 2}
   m_sharedMaterial: {fileID: 6904172529390923348, guid: b5174153a94d3d7438976f8206e0025a, type: 2}
@@ -807,8 +807,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11.33, y: 0.4770599}
-  m_SizeDelta: {x: 20, y: 5}
+  m_AnchoredPosition: {x: -1.2967, y: 3.8127}
+  m_SizeDelta: {x: 2.9536, y: 0.4968}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &130413958
 MonoBehaviour:
@@ -3382,7 +3382,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: -100
+  m_SortingOrder: 57
   m_TargetDisplay: 0
 --- !u!224 &346420063
 RectTransform:
@@ -4808,7 +4808,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Water
+  m_text: '  Guitar'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5174153a94d3d7438976f8206e0025a, type: 2}
   m_sharedMaterial: {fileID: 6904172529390923348, guid: b5174153a94d3d7438976f8206e0025a, type: 2}
@@ -6628,7 +6628,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Water
+  m_text: '  Coins'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5174153a94d3d7438976f8206e0025a, type: 2}
   m_sharedMaterial: {fileID: 6904172529390923348, guid: b5174153a94d3d7438976f8206e0025a, type: 2}
@@ -6742,8 +6742,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11.33, y: 1.04}
-  m_SizeDelta: {x: 20, y: 5}
+  m_AnchoredPosition: {x: -1.7686, y: 4.3572}
+  m_SizeDelta: {x: 2.3167, y: 0.5217}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &868548166
 MonoBehaviour:
@@ -6946,7 +6946,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Water
+  m_text: ' Pencil'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5174153a94d3d7438976f8206e0025a, type: 2}
   m_sharedMaterial: {fileID: 6904172529390923348, guid: b5174153a94d3d7438976f8206e0025a, type: 2}
@@ -9349,7 +9349,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Water
+  m_text: ' Rations'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5174153a94d3d7438976f8206e0025a, type: 2}
   m_sharedMaterial: {fileID: 6904172529390923348, guid: b5174153a94d3d7438976f8206e0025a, type: 2}
@@ -10557,7 +10557,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Water
+  m_text: ' Water'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5174153a94d3d7438976f8206e0025a, type: 2}
   m_sharedMaterial: {fileID: 6904172529390923348, guid: b5174153a94d3d7438976f8206e0025a, type: 2}
@@ -11234,7 +11234,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Water
+  m_text: ' Laptop'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5174153a94d3d7438976f8206e0025a, type: 2}
   m_sharedMaterial: {fileID: 6904172529390923348, guid: b5174153a94d3d7438976f8206e0025a, type: 2}
@@ -12962,7 +12962,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Water
+  m_text: ' Flower'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5174153a94d3d7438976f8206e0025a, type: 2}
   m_sharedMaterial: {fileID: 6904172529390923348, guid: b5174153a94d3d7438976f8206e0025a, type: 2}
