@@ -100,6 +100,8 @@ public class MapMovement : MonoBehaviour
     {
         isOver1 = false;
 
+        positionTracker.transform.position = leaveNode.transform.position;
+
         sceneDesc.text = "This is 1-topia. A desolate place left in ruin from the upper eschalant of this world. You are a junkrat, a nomad scavenger that relies on what gets left behind to survive, and you alone must search for your means to live. Travel to nearby locations to scavenge and manage your energy so you can overcome this unforgiving place.";
 
         SetSceneLibrary(loadLibrary, false);
@@ -108,9 +110,9 @@ public class MapMovement : MonoBehaviour
         SetSceneOverworld(loadOverworld, true);
         
         itemCounter.text = ($"Items: {itemCount}");
-        smallItemCounter.text = ($"Quantity: {smallItemCount}");
-        medItemCounter.text = ($"Quantity: {medItemCount}");
-        largeItemCounter.text = ($"Quantity: {largeItemCount}");
+        smallItemCounter.text = ($"Small Item Quantity: {smallItemCount}");
+        medItemCounter.text = ($"Med Item Quantity: {medItemCount}");
+        largeItemCounter.text = ($"Lrg Item Quantity: {largeItemCount}");
         yesButton.gameObject.SetActive(false);
         noButton.gameObject.SetActive(false);
         yesButton2.gameObject.SetActive(false);
@@ -149,8 +151,21 @@ public class MapMovement : MonoBehaviour
         if (smallItemCount < 0)
         {
             smallItemCount = 0;
-            smallItemCounter.text = ($"Quantity: {smallItemCount}");
-        }  
+            smallItemCounter.text = ($"Small Item Quantity: {smallItemCount}");
+        }
+
+        if (medItemCount < 0)
+        {
+            medItemCount = 0;
+            medItemCounter.text = ($"Med Item Quantity: {medItemCount}");
+        }
+
+        if (largeItemCount < 0)
+        {
+            largeItemCount = 0;
+            largeItemCounter.text = ($"Lrg Item Quantity: {largeItemCount}");
+        }
+
 
         if (smallItemCount > 1 || medItemCount > 1 || largeItemCount > 1)
         {
@@ -235,7 +250,7 @@ public class MapMovement : MonoBehaviour
         itemCounter.text = ($"Items: {itemCount}");
         sceneDesc.text = "You obtained the item.";
         smallItemCount += 1;
-        smallItemCounter.text = ($"Quantity: {smallItemCount}");
+        smallItemCounter.text = ($"Small Item Quantity: {smallItemCount}");
         smallItemIcon1.SetActive(true);
         itemPickupSound.Play();
         yesButton.gameObject.SetActive(false);
@@ -266,7 +281,7 @@ public class MapMovement : MonoBehaviour
         itemCounter.text = ($"Items: {itemCount}");
         sceneDesc.text = "You obtained the item.";
         smallItemCount += 1;
-        smallItemCounter.text = ($"Quantity: {smallItemCount}");
+        smallItemCounter.text = ($"Small Item Quantity: {smallItemCount}");
         smallItemIcon2.SetActive(true);
         itemPickupSound.Play();
         yesButton.gameObject.SetActive(false);
@@ -296,7 +311,7 @@ public class MapMovement : MonoBehaviour
         itemCounter.text = ($"Items: {itemCount}");
         sceneDesc.text = "You obtained the item.";
         smallItemCount += 1;
-        smallItemCounter.text = ($"Quantity: {smallItemCount}");
+        smallItemCounter.text = ($"Small Item Quantity: {smallItemCount}");
         smallItemIcon3.SetActive(true);
         itemPickupSound.Play();
         yesButton.gameObject.SetActive(false);
@@ -325,7 +340,7 @@ public class MapMovement : MonoBehaviour
         itemCounter.text = ($"Items: {itemCount}");
         sceneDesc.text = "You obtained the item.";
         medItemCount += 1;
-        medItemCounter.text = ($"Quantity: {medItemCount}");
+        medItemCounter.text = ($"Med Item Quantity: {medItemCount}");
         medItemIcon1.SetActive(true);
         itemPickupSound.Play();
         yesButton.gameObject.SetActive(false);
@@ -355,7 +370,7 @@ public class MapMovement : MonoBehaviour
         itemCounter.text = ($"Items: {itemCount}");
         sceneDesc.text = "You obtained the item.";
         medItemCount += 1;
-        medItemCounter.text = ($"Quantity: {medItemCount}");
+        medItemCounter.text = ($"Med Item Quantity: {medItemCount}");
         medItemIcon2.SetActive(true);
         itemPickupSound.Play();
         yesButton.gameObject.SetActive(false);
@@ -385,7 +400,7 @@ public class MapMovement : MonoBehaviour
         itemCounter.text = ($"Items: {itemCount}");
         sceneDesc.text = "You obtained the item.";
         medItemCount += 1;
-        medItemCounter.text = ($"Quantity: {medItemCount}");
+        medItemCounter.text = ($"Med Item Quantity: {medItemCount}");
         medItemIcon3.SetActive(true);
         itemPickupSound.Play();
         yesButton.gameObject.SetActive(false);
@@ -415,7 +430,7 @@ public class MapMovement : MonoBehaviour
         itemCounter.text = ($"Items: {itemCount}");
         sceneDesc.text = "You obtained the item.";
         largeItemCount += 1;
-        largeItemCounter.text = ($"Quantity: {largeItemCount}");
+        largeItemCounter.text = ($"Lrg Item Quantity: {largeItemCount}");
         largeItemIcon1.SetActive(true);
         itemPickupSound.Play();
         yesButton.gameObject.SetActive(false);
@@ -445,7 +460,7 @@ public class MapMovement : MonoBehaviour
         itemCounter.text = ($"Items: {itemCount}");
         sceneDesc.text = "You obtained the item.";
         largeItemCount += 1;
-        largeItemCounter.text = ($"Quantity: {largeItemCount}");
+        largeItemCounter.text = ($"Lrg Item Quantity: {largeItemCount}");
         largeItemIcon2.SetActive(true);
         itemPickupSound.Play();
         yesButton.gameObject.SetActive(false);
@@ -484,12 +499,16 @@ public class MapMovement : MonoBehaviour
 
     public void ItemDropSmall()
     {
-        itemCount -= 1;
-        itemCounter.text = ($"Items: {itemCount}");
-        smallItemCount -= 1;
-        smallItemCounter.text = ($"Quantity: {smallItemCount}");
-        smallItemIcon1.SetActive(false);
-        itemPickupSound.Play();
+
+        
+            itemCount -= 1;
+            itemCounter.text = ($"Items: {itemCount}");
+            smallItemCount -= 1;
+            smallItemCounter.text = ($"Small Item Quantity: {smallItemCount}");
+            smallItemIcon1.SetActive(false);
+            smallItemDrop1.enabled = false;
+            itemPickupSound.Play();
+        
     }
 
     public void ItemDropSmall2()
@@ -497,8 +516,9 @@ public class MapMovement : MonoBehaviour
         itemCount -= 1;
         itemCounter.text = ($"Items: {itemCount}");
         smallItemCount -= 1;
-        smallItemCounter.text = ($"Quantity: {smallItemCount}");
+        smallItemCounter.text = ($"Small Item Quantity: {smallItemCount}");
         smallItemIcon2.SetActive(false);
+        smallItemDrop2.enabled = false;
         itemPickupSound.Play();
     }
 
@@ -507,8 +527,9 @@ public class MapMovement : MonoBehaviour
         itemCount -= 1;
         itemCounter.text = ($"Items: {itemCount}");
         smallItemCount -= 1;
-        smallItemCounter.text = ($"Quantity: {smallItemCount}");
+        smallItemCounter.text = ($"Small Item Quantity: {smallItemCount}");
         smallItemIcon3.SetActive(false);
+        smallItemDrop3.enabled = false;
         itemPickupSound.Play();
     }
 
@@ -517,8 +538,9 @@ public class MapMovement : MonoBehaviour
         itemCount -= 1;
         itemCounter.text = ($"Items: {itemCount}");
         medItemCount -= 1;
-        medItemCounter.text = ($"Quantity: {medItemCount}");
+        medItemCounter.text = ($"Med Item Quantity: {medItemCount}");
         medItemIcon1.SetActive(false);
+        medItemDrop1.enabled = false;
         itemPickupSound.Play();
     }
 
@@ -527,8 +549,9 @@ public class MapMovement : MonoBehaviour
         itemCount -= 1;
         itemCounter.text = ($"Items: {itemCount}");
         medItemCount -= 1;
-        medItemCounter.text = ($"Quantity: {medItemCount}");
+        medItemCounter.text = ($"Med Item Quantity: {medItemCount}");
         medItemIcon2.SetActive(false);
+        medItemDrop2.enabled = false;
         itemPickupSound.Play();
     }
 
@@ -537,8 +560,9 @@ public class MapMovement : MonoBehaviour
         itemCount -= 1;
         itemCounter.text = ($"Items: {itemCount}");
         medItemCount -= 1;
-        medItemCounter.text = ($"Quantity: {medItemCount}");
+        medItemCounter.text = ($"Med Item Quantity: {medItemCount}");
         medItemIcon3.SetActive(false);
+        medItemDrop3.enabled = false;
         itemPickupSound.Play();
     }
 
@@ -547,8 +571,9 @@ public class MapMovement : MonoBehaviour
         itemCount -= 1;
         itemCounter.text = ($"Items: {itemCount}");
         largeItemCount -= 1;
-        largeItemCounter.text = ($"Quantity: {largeItemCount}");
+        largeItemCounter.text = ($"Lrg Item Quantity: {largeItemCount}");
         largeItemIcon1.SetActive(false);
+        largeItemDrop1.enabled = false;
         itemPickupSound.Play();
     }
 
@@ -557,8 +582,9 @@ public class MapMovement : MonoBehaviour
         itemCount -= 1;
         itemCounter.text = ($"Items: {itemCount}");
         largeItemCount -= 1;
-        largeItemCounter.text = ($"Quantity: {largeItemCount}");
+        largeItemCounter.text = ($"Lrg Item Quantity: {largeItemCount}");
         largeItemIcon2.SetActive(false);
+        largeItemDrop2.enabled = false;
         itemPickupSound.Play();
     }
 
