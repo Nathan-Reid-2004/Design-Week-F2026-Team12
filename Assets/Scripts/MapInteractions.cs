@@ -84,11 +84,16 @@ public class MapMovement : MonoBehaviour
     public GameObject leaveNodeLibrary;
     public GameObject leaveNodeFactory;
 
+    public GameObject mapOverworld;
+    public GameObject mapHospital;
+    public GameObject mapFactory;
+    public GameObject mapLibrary;
+
     bool loadItems;
-    public GameObject[] loadOverworld = new GameObject[4];
-    public GameObject[] loadLibrary = new GameObject[4];
-    public GameObject[] loadHospital = new GameObject[4];
-    public GameObject[] loadFactory = new GameObject[3];
+    public GameObject[] loadOverworld = new GameObject[5];
+    public GameObject[] loadLibrary = new GameObject[5];
+    public GameObject[] loadHospital = new GameObject[5];
+    public GameObject[] loadFactory = new GameObject[4];
 
     public AudioSource itemPickupSound;
     public AudioSource menuSound;
